@@ -84,24 +84,24 @@ class LinkedList:
         cur.next = temp
 
 
-my_list = LinkedList()
+# my_list = LinkedList()
 
-for i in range(2, 7):
-    my_list.append(i**2)
+# for i in range(2, 7):
+#     my_list.append(i**2)
 
-my_list.insert_values(['a', 'b'])
+# my_list.insert_values(['a', 'b'])
 
-my_list.print_list()
+# my_list.print_list()
 
-print(f'Length: {my_list.length()}')
+# print(f'Length: {my_list.length()}')
 
-my_list.remove(0)
+# my_list.remove(0)
 
-my_list.print_list()
+# my_list.print_list()
 
-print(f'Length: {my_list.length()}')
+# print(f'Length: {my_list.length()}')
 
-my_list.insert_at(3, 'yes')
+# my_list.insert_at(3, 'yes')
 
-my_list.print_list()
+# my_list.print_list()
 
