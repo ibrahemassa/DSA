@@ -7,6 +7,7 @@ class Node:
 class LinkedList:
     def __init__(self) -> None:
         self.head = None
+        self.tail = None
     
     def insert_at_beg(self, val):
         node = Node(val=val, next=self.head)
@@ -16,12 +17,14 @@ class LinkedList:
         node = Node(val=val, next=None)
         if self.head == None:
             self.head = node
+            self.tail = node
             return
 
         cur = self.head
         while cur.next:
             cur = cur.next
         cur.next = node
+        self.tail = node
     
     def print_list(self):
         if self.head == None:
@@ -49,7 +52,7 @@ class LinkedList:
         return c
 
     def remove(self, index):
-        if index >= self.length() - 1 or index < 0:
+        if index > self.length() - 1 or index < 0:
             print("Out of index!")
             return
 
@@ -63,9 +66,12 @@ class LinkedList:
             cur = cur.next
             cur_index += 1
         cur.next = cur.next.next
+        if index == self.length() - 1:
+            self.tail = cur.next
+
     
     def insert_at(self, index, val):
-        if index >= self.length() - 1 or index < 0:
+        if index > self.length() - 1 or index < 0:
             print("Out of index!")
             return
         if index == 0:
@@ -82,6 +88,8 @@ class LinkedList:
             cur_index += 1
         temp.next = cur.next
         cur.next = temp
+        if index == self.length() - 1:
+            self.tail = temp
 
 
 # my_list = LinkedList()
