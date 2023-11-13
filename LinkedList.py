@@ -20,10 +20,7 @@ class LinkedList:
             self.tail = node
             return
 
-        cur = self.head
-        while cur.next:
-            cur = cur.next
-        cur.next = node
+        self.tail.next = node
         self.tail = node
     
     def print_list(self):
