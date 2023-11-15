@@ -23,10 +23,9 @@ class LinkedList:
         self.tail.next = node
         self.tail = node
     
-    def print_list(self):
+    def __str__(self):
         if self.head == None:
-            print('The list is empty!')
-            return
+            return 'The list is empty!'
 
         cur = self.head
         the_list = ''
@@ -34,13 +33,13 @@ class LinkedList:
             the_list += f'{cur.val}->'
             cur = cur.next
         the_list += 'None'
-        print(the_list)
+        return the_list
 
     def insert_values(self, values):
         for v in values:
             self.append(v)
     
-    def length(self):
+    def __len__(self):
         c = 0
         cur = self.head
         while cur:
@@ -49,7 +48,7 @@ class LinkedList:
         return c
 
     def remove(self, index):
-        if index > self.length() - 1 or index < 0:
+        if index > len(self) - 1 or index < 0:
             print("Out of index!")
             return
 
@@ -63,12 +62,12 @@ class LinkedList:
             cur = cur.next
             cur_index += 1
         cur.next = cur.next.next
-        if index == self.length() - 1:
-            self.tail = cur.next
+        if index == len(self) - 1:
+            self.tail = cur
 
     
     def insert_at(self, index, val):
-        if index > self.length() - 1 or index < 0:
+        if index > len(self) - 1 or index < 0:
             print("Out of index!")
             return
         if index == 0:
@@ -85,7 +84,7 @@ class LinkedList:
             cur_index += 1
         temp.next = cur.next
         cur.next = temp
-        if index == self.length() - 1:
+        if index == len(self) - 1:
             self.tail = temp
 
 
@@ -96,17 +95,17 @@ class LinkedList:
 
 # my_list.insert_values(['a', 'b'])
 
-# my_list.print_list()
+# print(my_list)
 
-# print(f'Length: {my_list.length()}')
+# print(f'Length: {len(my_list)}')
 
 # my_list.remove(0)
 
-# my_list.print_list()
+# print(my_list)
 
-# print(f'Length: {my_list.length()}')
+# print(f'Length: {len(my_list)}')
 
 # my_list.insert_at(3, 'yes')
 
-# my_list.print_list()
+# print(my_list)
 
