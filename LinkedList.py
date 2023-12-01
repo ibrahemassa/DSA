@@ -23,16 +23,21 @@ class LinkedList:
         self.tail.next = node
         self.tail = node
     
+    def iter(self):
+        cur = self.head
+        while cur:
+            val = cur.val
+            cur = cur.next
+            yield val
+
     def __str__(self):
         if self.head == None:
             return 'The list is empty!'
 
-        cur = self.head
-        the_list = ''
-        while cur:
-            the_list += f'{cur.val}->'
-            cur = cur.next
-        the_list += 'None'
+        the_list = '['
+        for node in self.iter():
+            the_list += f'{node}, '
+        the_list = the_list[:-2] + ']'
         return the_list
 
     def insert_values(self, values):
@@ -86,6 +91,24 @@ class LinkedList:
         cur.next = temp
         if index == len(self) - 1:
             self.tail = temp
+
+    def search(self, data):
+        return data in self.iter()
+
+    def __getitem__(self, index):
+        cur = 0
+        if index > len(self) - 1:
+            return 'Out of index!!!'
+        for i in self.iter():
+            if cur == index:
+                return i
+            cur += 1
+
+    def clear(self):
+        self.head = None
+        self.tail = None
+        self.size = 0    
+
 
 
 # my_list = LinkedList()
