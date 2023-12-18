@@ -1,8 +1,8 @@
 def selection_sort(arr):
     for i in range(len(arr)):
-        min_num, min_index = float('inf'), i
+        min_num, min_index = arr[i], i
 
-        for j in range(i, len(arr)):
+        for j in range(i+1, len(arr)):
             if arr[j] < min_num:
                 min_num, min_index = arr[j], j
 
