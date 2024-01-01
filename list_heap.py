@@ -31,8 +31,9 @@ class Heap:
 
     def pop(self):
         data = self.heap[1]
-        self.heap[1] = self.heap.pop()
+        self.heap[1] = self.heap[self.size]
         self.size -= 1
+        self.heap.pop()
         self.sink(1)
         return data
 
